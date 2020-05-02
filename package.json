@@ -1,0 +1,35 @@
+{
+  "name": "saloimex",
+  "version": "0.0.1",
+  "description": "JavaScript module for save, load, import, and export JSON data to base64 string vice versa.",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc --reporter=html mocha -r jsdom-global/register index.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farishan/saloimex.git"
+  },
+  "keywords": [
+    "saloimex",
+    "javascript",
+    "browser"
+  ],
+  "author": "Faris Han",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/farishan/saloimex/issues"
+  },
+  "homepage": "https://github.com/farishan/saloimex#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "jsdom": "16.2.2",
+    "jsdom-global": "3.0.2",
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.1",
+    "parcel-bundler": "^1.12.4"
+  }
+}
