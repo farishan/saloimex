@@ -65,8 +65,9 @@
     /**
      * Export the data to base64 string
      *
-     * @return {Object} data
+     * @param {Object} data
      *   The data object
+     * @return {String} base64
      */
     export(data) {
       if (data) {
@@ -82,13 +83,14 @@
     /**
      * Import the data from base64 string
      *
-     * @return {String} Stringified JSON data
-     *   The data object
+     * @param {String} string JSON data
+     *   The stringified data object
+     * @return {Object} JSON data
      */
-    import(dataString) {
-      if (dataString) {
+    import(string) {
+      if (string) {
         /* istanbul ignore next */
-        const data = JSON.parse(atob(dataString));
+        const data = JSON.parse(atob(string));
         /* istanbul ignore next */
         this.save(data);
         /* istanbul ignore next */
