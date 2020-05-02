@@ -8,7 +8,7 @@ class Saloimex {
    * @constructor
    */
   constructor(key) {
-    this.key = key || 'saloimex_';
+    this.key = key ? `${key.toLowerCase().split(' ').join('_')}_data` : 'saloimex_data';
   }
 
   /**
@@ -30,7 +30,6 @@ class Saloimex {
     let data = false;
 
     if (localStorage.getItem(this.key)) {
-      /* istanbul ignore next */
       data = JSON.parse(localStorage.getItem(this.key));
     }
 
