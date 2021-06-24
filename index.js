@@ -2,6 +2,8 @@
  * Saloimex
  * Faris Han, 2020
  */
+
+/* eslint-disable-next-line no-unused-vars */
 class Saloimex {
   /**
    * Saloimex
