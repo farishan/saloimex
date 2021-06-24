@@ -1,3 +1,5 @@
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+
 /*
  * Saloimex
  * Faris Han, 2020
@@ -10,7 +12,11 @@ class Saloimex {
    * @constructor
    */
   constructor(key) {
+    this.version = '0.1.0';
     this.key = key ? `${key.toLowerCase().split(' ').join('_')}_data` : 'saloimex_data';
+
+    // Version Logger
+    // console.log(`saloimex v${this.version}`);
   }
 
   /**
@@ -19,7 +25,11 @@ class Saloimex {
    * @return {object} data - The passed data.
    */
   save(data) {
-    localStorage.setItem(this.key, JSON.stringify(data));
+    if (data && data !== null) {
+      localStorage.setItem(this.key, JSON.stringify(data));
+    } else {
+      console.error("Invalid data. 'save' method need a JSON data.", { data });
+    }
 
     return data;
   }
@@ -29,10 +39,14 @@ class Saloimex {
    * @return {object} data - The JSON data.
    */
   load() {
-    let data = false;
+    let data;
 
-    if (localStorage.getItem(this.key)) {
-      data = JSON.parse(localStorage.getItem(this.key));
+    const item = localStorage.getItem(this.key);
+
+    if (item && item !== null) {
+      data = JSON.parse(item);
+    } else {
+      console.error('Failed to load data.', { item });
     }
 
     return data;
@@ -42,11 +56,18 @@ class Saloimex {
    * Export JSON to base64.
    * @param {data} data - The JSON data.
    * @return {string} result - The base64 string.
+   * @todo
+   *  [] add options for export without saving
    */
   export(data) {
-    this.save(data);
+    let result;
 
-    const result = btoa(JSON.stringify(data));
+    if (data && data !== null) {
+      this.save(data);
+      result = btoa(JSON.stringify(data));
+    } else {
+      console.error('Invalid data. "export" method need a JSON data.');
+    }
 
     return result;
   }
@@ -57,9 +78,14 @@ class Saloimex {
    * @return {object} data - The JSON data.
    */
   import(string) {
-    const data = JSON.parse(atob(string));
+    let data;
 
-    this.save(data);
+    if (string && string !== '') {
+      data = JSON.parse(atob(string));
+      this.save(data);
+    } else {
+      console.error('Invalid string. "import" method need a base64 string.');
+    }
 
     return data;
   }
