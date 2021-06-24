@@ -19,14 +19,32 @@ it('saloimex.init should be a function', () => {
 
 describe('#init()', () => {
   context('without arguments', () => {
-    it('should return 201', () => {
-      expect(Saloimex.init()).to.equal(201);
+    it('should return 404', () => {
+      expect(Saloimex.init()).to.equal(404);
     });
   });
 
-  context('with arguments', () => {
+  context('with key as first argument', () => {
+    it('should return 400', () => {
+      expect(Saloimex.init('my storage key')).to.equal(400);
+    });
+  });
+
+  context('with empty object as first argument', () => {
+    it('should return 400', () => {
+      expect(Saloimex.init({})).to.equal(400);
+    });
+  });
+
+  context('with right storage object and key', () => {
     it('should return 200', () => {
-      expect(Saloimex.init('my storage key')).to.equal(200);
+      expect(
+        Saloimex.init({
+          getItem: function(key){return `{"testKey":"${key}"}`;},
+          setItem: function(){return;}
+        },
+        'my_testing_key'
+      )).to.equal(200);
     });
   });
 });

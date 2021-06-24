@@ -7,21 +7,38 @@
 
 (function saloimex() {
   let privateKey = 'default_key_data';
+  let localStorage = undefined;
 
   const Saloimex = {
     /**
      * Initialize
      *
+     * @param {Object} storage
+     *   Browser's localStorage
      * @param {String} key
      *   Unique key for local storage
      */
-    init(key) {
-      if (key) {
-        privateKey = `${key.toLowerCase().split(' ').join('_')}_data`;
-        return 200;
+    init(storage, key) {
+      if (typeof storage === 'string') {
+        console.error('Wrong first parameter. Should be browser localStorage object.');
+        return 400;
+      } else {
+        if (storage && !storage.getItem) {
+          console.error('Storage getItem method not detected.');
+          return 400;
+        }
       }
 
-      return 201;
+      if (storage && key) {
+        localStorage = storage;
+        privateKey = `${key.toLowerCase().split(' ').join('_')}_data`;
+        return 200;
+      } else if (storage && !key) {
+        localStorage = storage;
+        return 201;
+      } else {
+        return 404;
+      }
     },
 
     /**
