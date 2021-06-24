@@ -1,10 +1,16 @@
 # Saloimex
 
-A personal JavaScript library for save, load, import, and export game data,
-JSON to base64 - vice versa.
+[DEMO](https://farishan.github.io/saloimex/example/)
 
-Work in progress.
+A personal client-side JavaScript library for **sa**ve, **lo**ad, **im**port, and **ex**port game data, JSON to base64 and vice versa.
 
-### Quick Usage
+Part of Konoca project by Faris Han.
 
-Soon.
+## Quick Usage
+
+2. Copy `dist/saloimex.min.js` to your project.
+3. Call it from `index.html`.
+
+---
+
+See `example` folder for more.
