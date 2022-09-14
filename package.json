@@ -1,6 +1,6 @@
 {
   "name": "saloimex",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JavaScript module for save, load, import, and export JSON data to base64 string vice versa.",
   "main": "index.js",
   "repository": {
