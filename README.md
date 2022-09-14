@@ -8,8 +8,22 @@ Part of Konoca project by Faris Han.
 
 ## Quick Usage
 
-2. Copy `dist/saloimex.min.js` to your project.
-3. Call it from `index.html`.
+1. Copy `dist/saloimex.min.js` to your project.
+2. Call it from `index.html`.
+3. Create an instance
+```
+    const saloimex = new Saloimex('Your Key')
+```
+
+## NPM Scripts
+
+- `npm run lint`
+- `npm run build`
+- `npm run doc` - generate documentation
+
+## API Documentation
+
+See [doc.md](./doc.md)
 
 ---
 
