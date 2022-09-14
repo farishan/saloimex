@@ -1,6 +1,6 @@
 /* eslint-disable */
 const key = 'My Key';
-const saloimex = new Saloimex('My Key');
+const saloimex = new Saloimex('My Key', true);
 el('output').innerHTML += `<hr>Initialize Saloimex. Key: ${key}<hr>`;
 console.log('Initialize Saloimex. Key:', key);
 

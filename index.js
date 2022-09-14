@@ -11,12 +11,13 @@ class Saloimex {
    * Saloimex
    * @constructor
    */
-  constructor(key) {
-    this.version = '0.1.0';
+  constructor(key, isDebug) {
+    this.version = '0.0.1';
     this.key = key ? `${key.toLowerCase().split(' ').join('_')}_data` : 'saloimex_data';
 
     // Version Logger
-    // console.log(`saloimex v${this.version}`);
+    // eslint-disable-next-line no-console
+    if (isDebug) console.info(`saloimex v${this.version}`);
   }
 
   /**
