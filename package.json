@@ -8,7 +8,7 @@
     "url": "git+https://github.com/farishan/saloimex.git"
   },
   "scripts": {
-    "build": "npx uglifyjs index.js -c -o dist/saloimex.min.js",
+    "build": "npx esbuild ./index.js --minify --outfile=./dist/saloimex.min.js",
     "lint": "npx eslint index.js"
   },
   "keywords": [
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/farishan/saloimex#readme",
   "devDependencies": {
+    "esbuild": "^0.15.7",
     "eslint": "^7.29.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4"
